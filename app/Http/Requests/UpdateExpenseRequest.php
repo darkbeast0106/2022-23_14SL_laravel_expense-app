@@ -13,7 +13,7 @@ class UpdateExpenseRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class UpdateExpenseRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "location" => "string|max:150",
+            "cost" => "integer|min:1"
         ];
     }
 }

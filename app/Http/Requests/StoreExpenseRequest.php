@@ -13,7 +13,7 @@ class StoreExpenseRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class StoreExpenseRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "location" => "required|string|max:150",
+            "cost" => "required|integer|min:1"
         ];
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Expense;
+use App\Http\Controllers\API\ExpenseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,14 +23,12 @@ Route::get("/hello", function() {
     return response()->json(["message" => "Hello World!"]);
 });
 
-Route::get("/expense", function() {
-    $expenses = Expense::all();
-    return response()->json($expenses);
-});
-
-Route::post("/expense", function(Request $request) {
-    $expense = new Expense();
-    $expense->fill($request->all());
-    $expense->save();
-    return response()->json($expense, 201);
-});
+/*
+Route::get("/expense", [ExpenseController::class, 'index']);
+Route::post("/expense", [ExpenseController::class, 'store']);
+Route::get("/expense/{id}", [ExpenseController::class, 'show']);
+Route::put("/expense/{id}", [ExpenseController::class, 'update']);
+Route::patch("/expense/{id}", [ExpenseController::class, 'update']);
+Route::delete("/expense/{id}", [ExpenseController::class, 'destroy']);
+*/
+Route::apiResource("/expense", ExpenseController::class);
