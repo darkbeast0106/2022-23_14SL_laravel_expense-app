@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Expense;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,5 +21,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get("/hello", function() {
     return response()->json(["message" => "Hello World!"]);
+});
+
+Route::get("/expense", function() {
+    $expenses = Expense::all();
+    return response()->json($expenses);
 });
 

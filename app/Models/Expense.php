@@ -8,4 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class Expense extends Model
 {
     use HasFactory;
+
+    // A megadott oszlopok nem látszódnak a lekérdezésekben.
+    /*
+    protected $hidden = [
+        'updated_at'
+    ];
+    */
+
+    // Csak a megadott oszlopok látszódnak a lekérdezésekben.
+    protected $visible = [
+        'id',
+        'location',
+        'cost',
+        'created_at'
+    ];
 }
