@@ -23,4 +23,10 @@ class Expense extends Model
         'cost',
         'created_at'
     ];
+
+    // Az itt megadott oszlopokat lehet a fill függvénnyel kitölteni.
+    protected $fillable = [
+        'location',
+        'cost'
+    ];
 }

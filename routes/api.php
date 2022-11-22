@@ -28,3 +28,9 @@ Route::get("/expense", function() {
     return response()->json($expenses);
 });
 
+Route::post("/expense", function(Request $request) {
+    $expense = new Expense();
+    $expense->fill($request->all());
+    $expense->save();
+    return response()->json($expense, 201);
+});
