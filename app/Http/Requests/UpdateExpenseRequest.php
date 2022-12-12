@@ -25,7 +25,8 @@ class UpdateExpenseRequest extends FormRequest
     {
         return [
             "location" => "string|max:150",
-            "cost" => "integer|min:1"
+            "cost" => "integer|min:1",
+            "user_id" => "integer|min:1|exists:users,id",
         ];
     }
 }

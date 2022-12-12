@@ -25,7 +25,8 @@ class StoreExpenseRequest extends FormRequest
     {
         return [
             "location" => "required|string|max:150",
-            "cost" => "required|integer|min:1"
+            "cost" => "required|integer|min:1",
+            "user_id" => "required|integer|min:1|exists:users,id"
         ];
     }
 }
